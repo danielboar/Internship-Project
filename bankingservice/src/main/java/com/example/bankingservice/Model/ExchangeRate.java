@@ -9,6 +9,7 @@ import java.util.Date;
 @Entity
 @Table(name = "exchange_rate")
 public class ExchangeRate {
+
     @Id
     private String currencyPair;
 
