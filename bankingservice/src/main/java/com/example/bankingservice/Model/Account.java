@@ -1,19 +1,21 @@
 package com.example.bankingservice.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 @Entity
 @Table(name = "account")
 public class Account {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int accountId;
 
     @ManyToOne
     @JoinColumn(name = "client_id", nullable = false)
+    @JsonIgnoreProperties("accounts")
     private Client client;
 
     private String accountType;
@@ -24,6 +26,7 @@ public class Account {
     private String status;
 
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("account")
     private List<Transaction> transactions;
 
     public int getAccountId() {

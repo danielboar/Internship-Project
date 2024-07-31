@@ -1,8 +1,9 @@
 package com.example.bankingservice.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 @Entity
@@ -25,6 +26,7 @@ public class Client {
     private Date customerSince;
 
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("client")
     private List<Account> accounts;
 
     public void setClientId(int id) {

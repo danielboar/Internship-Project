@@ -1,8 +1,9 @@
 package com.example.bankingservice.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
-import java.util.Date;
+import java.sql.Date;
 
 @Entity
 @Table(name = "transaction")
@@ -13,6 +14,7 @@ public class Transaction {
 
     @ManyToOne
     @JoinColumn(name = "account_id", nullable = false)
+    @JsonIgnoreProperties("transactions")
     private Account account;
 
     private Date date;
