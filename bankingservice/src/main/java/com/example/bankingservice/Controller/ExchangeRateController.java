@@ -2,7 +2,7 @@ package com.example.bankingservice.Controller;
 
 import com.example.bankingservice.Model.ExchangeRate;
 import com.example.bankingservice.Service.ExchangeRateService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,10 +10,10 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/exchange_rates")
+@RequiredArgsConstructor
 public class ExchangeRateController {
 
-    @Autowired
-    private ExchangeRateService exchangeRateService;
+    private final ExchangeRateService exchangeRateService;
 
     @GetMapping
     public List<ExchangeRate> getExchangeRates() {

@@ -2,8 +2,7 @@ package com.example.bankingservice.Controller;
 
 import com.example.bankingservice.Model.Client;
 import com.example.bankingservice.Service.ClientService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,9 +10,10 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/clients")
+@RequiredArgsConstructor
 public class ClientController {
-    @Autowired
-    private ClientService clientService;
+
+    private final ClientService clientService;
 
     @GetMapping
     public List<Client> getAllClients(){

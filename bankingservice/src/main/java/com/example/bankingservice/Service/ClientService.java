@@ -2,16 +2,17 @@ package com.example.bankingservice.Service;
 
 import com.example.bankingservice.Model.Client;
 import com.example.bankingservice.Repository.ClientRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class ClientService {
-    @Autowired
-    private ClientRepository clientRepository;
+
+    private final ClientRepository clientRepository;
 
     public List<Client> getAllClients(){
         return clientRepository.findAll();

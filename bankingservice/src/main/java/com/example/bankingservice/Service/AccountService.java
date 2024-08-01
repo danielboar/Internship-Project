@@ -1,17 +1,21 @@
 package com.example.bankingservice.Service;
 
 import com.example.bankingservice.Model.Account;
+import com.example.bankingservice.Model.Client;
 import com.example.bankingservice.Repository.AccountRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.bankingservice.Repository.ClientRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class AccountService {
-    @Autowired
-    private AccountRepository accountRepository;
+
+    private final AccountRepository accountRepository;
+    private final ClientRepository clientRepository;
 
     public List<Account> getAllAccounts() {
         return accountRepository.findAll();
@@ -22,6 +26,10 @@ public class AccountService {
     }
 
     public Account createAccount(Account account) {
+        Client client = clientRepository.findById(account.getClientId())
+                .orElseThrow(() -> new RuntimeException("Client not found"));
+
+        account.setClient(client);
         return accountRepository.save(account);
     }
 

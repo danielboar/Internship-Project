@@ -2,8 +2,7 @@ package com.example.bankingservice.Controller;
 
 import com.example.bankingservice.Model.Account;
 import com.example.bankingservice.Service.AccountService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,9 +10,10 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/accounts")
+@RequiredArgsConstructor
 public class AccountController {
-    @Autowired
-    private AccountService accountService;
+
+    private final AccountService accountService;
 
     @GetMapping
     public List<Account> getAllAccounts(){

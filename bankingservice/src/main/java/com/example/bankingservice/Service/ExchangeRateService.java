@@ -2,16 +2,17 @@ package com.example.bankingservice.Service;
 
 import com.example.bankingservice.Model.ExchangeRate;
 import com.example.bankingservice.Repository.ExchangeRateRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class ExchangeRateService {
-    @Autowired
-    private ExchangeRateRepository exchangeRateRepository;
+
+    private final ExchangeRateRepository exchangeRateRepository;
 
     public List<ExchangeRate> getAllExchangeRates(){
         return exchangeRateRepository.findAll();

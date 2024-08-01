@@ -2,7 +2,7 @@ package com.example.bankingservice.Controller;
 
 import com.example.bankingservice.Model.Transaction;
 import com.example.bankingservice.Service.TransactionService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,9 +10,10 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/transactions")
+@RequiredArgsConstructor
 public class TransactionController {
-    @Autowired
-    private TransactionService transactionService;
+
+    private final TransactionService transactionService;
 
     @GetMapping
     public List<Transaction> getAllTransactions() {
