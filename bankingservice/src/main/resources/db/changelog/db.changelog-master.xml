@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+        <include file="init/create_client_table.sql" relativeToChangelogFile="true" author="Daniel Boar" context="app-version-1.0"/>
+        <include file="init/create_account_table.sql" relativeToChangelogFile="true" author="Daniel Boar" context="app-version-1.0"/>
+        <include file="init/create_transaction_table.sql" relativeToChangelogFile="true" author="Daniel Boar" context="app-version-1.0"/>
+        <include file="init/create_exchange_rate_table.sql" relativeToChangelogFile="true" author="Daniel Boar" context="app-version-1.0"/>
+
+</databaseChangeLog>
